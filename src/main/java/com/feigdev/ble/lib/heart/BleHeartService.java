@@ -3,6 +3,7 @@ package com.feigdev.ble.lib.heart;
 import android.app.Service;
 import android.bluetooth.*;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import com.feigdev.ble.lib.BleScanner;
@@ -20,6 +21,7 @@ import java.util.UUID;
 public class BleHeartService extends Service implements Reporter {
     // A service that interacts with the BLE device via the Android BLE API.
     private final static String TAG = "BleHeartService";
+    private Handler handler = new Handler();
 
     private BluetoothGatt mBluetoothGatt;
 
@@ -72,8 +74,10 @@ public class BleHeartService extends Service implements Reporter {
         if (null != scanner)
             scanner.scanLeDevice(false);
 
-        if (null != mBluetoothGatt)
+        if (null != mBluetoothGatt) {
             mBluetoothGatt.disconnect();
+            mBluetoothGatt.close();
+        }
 
         super.onDestroy();
     }
@@ -190,7 +194,13 @@ public class BleHeartService extends Service implements Reporter {
             Witness.notify(heartRate);
         } else {
             // For all other profiles, writes the data formatted in HEX.
-            Log.d(TAG, "unsupported profile");
+            final byte[] data = characteristic.getValue();
+            if (data != null && data.length > 0) {
+                final StringBuilder stringBuilder = new StringBuilder(data.length);
+                for (byte byteChar : data)
+                    stringBuilder.append(String.format("%02X ", byteChar));
+                Log.d(TAG, "new value " + stringBuilder.toString());
+            }
         }
     }
 
@@ -229,21 +239,17 @@ public class BleHeartService extends Service implements Reporter {
 
     }
 
-    public void close() {
-        if (mBluetoothGatt == null) {
-            return;
-        }
-        mBluetoothGatt.close();
-        mBluetoothGatt = null;
-    }
-
     @Override
-    public void notifyEvent(Object o) {
-        if (null == o)
-            return;
+    public void notifyEvent(final Object o) {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
 
-        if (o instanceof BleConnect) {
-            connectLeDevice(((BleConnect) o).device);
-        }
+                if (o instanceof BleConnect) {
+                    connectLeDevice(((BleConnect) o).device);
+                }
+
+            }
+        });
     }
 }
