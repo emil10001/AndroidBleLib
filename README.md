@@ -5,13 +5,13 @@ This is a work-in-progress Bluetooth LE / 4.0 library. Currently works with Hear
 
 This depends on the [Witness](https://github.com/emil10001/Witness) library.
 
-Features:
+### Features
 
 * Simple to pull in and get a BLE heart rate monitor working
 * Leverages an event emitter, Witness
 * Remember last connected device
 
-Usage:
+### Usage
 
 The first thing that we need to know is whether or not we've ever connected to a BLE device. This library assumes that there will be a single device that you will use.
 
