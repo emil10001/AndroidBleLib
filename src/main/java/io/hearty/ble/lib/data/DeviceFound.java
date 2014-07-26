@@ -1,4 +1,4 @@
-package com.feigdev.ble.lib.data;
+package io.hearty.ble.lib.data;
 
 import android.bluetooth.BluetoothDevice;
 

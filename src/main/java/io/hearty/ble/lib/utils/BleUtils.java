@@ -1,4 +1,4 @@
-package com.feigdev.ble.lib.utils;
+package io.hearty.ble.lib.utils;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;

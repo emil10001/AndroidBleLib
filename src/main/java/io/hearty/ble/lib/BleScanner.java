@@ -1,4 +1,4 @@
-package com.feigdev.ble.lib;
+package io.hearty.ble.lib;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -6,10 +6,10 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import com.feigdev.ble.lib.data.DeviceFound;
-import com.feigdev.ble.lib.data.StoredBluetoothDevice;
-import com.feigdev.ble.lib.utils.BleUtils;
-import com.feigdev.witness.Witness;
+import io.hearty.ble.lib.data.DeviceFound;
+import io.hearty.ble.lib.data.StoredBluetoothDevice;
+import io.hearty.ble.lib.utils.BleUtils;
+import io.hearty.witness.Witness;
 
 import java.util.concurrent.ConcurrentHashMap;
 

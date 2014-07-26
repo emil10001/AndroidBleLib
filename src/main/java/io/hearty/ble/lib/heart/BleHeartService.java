@@ -1,4 +1,4 @@
-package com.feigdev.ble.lib.heart;
+package io.hearty.ble.lib.heart;
 
 import android.app.Service;
 import android.bluetooth.*;
@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
-import com.feigdev.ble.lib.BleScanner;
-import com.feigdev.ble.lib.data.BleConnect;
-import com.feigdev.ble.lib.data.HeartRate;
-import com.feigdev.ble.lib.utils.BlePrefs;
-import com.feigdev.ble.lib.utils.SampleGattAttributes;
-import com.feigdev.witness.Reporter;
-import com.feigdev.witness.Witness;
+import io.hearty.ble.lib.BleScanner;
+import io.hearty.ble.lib.data.BleConnect;
+import io.hearty.ble.lib.data.HeartRate;
+import io.hearty.ble.lib.utils.BlePrefs;
+import io.hearty.ble.lib.utils.SampleGattAttributes;
+import io.hearty.witness.Reporter;
+import io.hearty.witness.Witness;
 
 import java.util.HashMap;
 import java.util.List;
