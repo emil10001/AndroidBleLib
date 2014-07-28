@@ -26,13 +26,13 @@ public class BleHeartService extends Service implements Reporter {
     private BluetoothGatt mBluetoothGatt;
 
     public final static String ACTION_GATT_CONNECTED =
-            "com.feigdev.ble.lib.ACTION_GATT_CONNECTED";
+            "io.hearty.ble.lib.ACTION_GATT_CONNECTED";
     public final static String ACTION_GATT_DISCONNECTED =
-            "com.feigdev.ble.lib.ACTION_GATT_DISCONNECTED";
+            "io.hearty.ble.lib.ACTION_GATT_DISCONNECTED";
     public final static String ACTION_GATT_SERVICES_DISCOVERED =
-            "com.feigdev.ble.lib.ACTION_GATT_SERVICES_DISCOVERED";
+            "io.hearty.ble.lib.ACTION_GATT_SERVICES_DISCOVERED";
     public final static String ACTION_DATA_AVAILABLE =
-            "com.feigdev.ble.lib.ACTION_DATA_AVAILABLE";
+            "io.hearty.ble.lib.ACTION_DATA_AVAILABLE";
 
     public static String UUID_HEART_RATE_MEASUREMENT =
             "00002a37-0000-1000-8000-00805f9b34fb";
